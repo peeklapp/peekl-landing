@@ -1,0 +1,48 @@
+@import url(https://fonts.bunny.net/css?family=ubuntu:500);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: #bed936;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.peekl-title {
+  font-family: 'Ubuntu', sans-serif;
+  color: #731db5;
+  font-size: 10vh;
+  padding: 20px;
+}
+
+.peekl-buttons {
+  padding: 20px;
+}
+
+.peekl-button {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 2vh;
+  font-family: 'Ubuntu', sans-serif;
+  color: #731db5;
+  text-decoration: none;
+}
+
+.filled {
+  border: 1px solid #731db5;
+  background-color: #731db5;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .peekl-button { display: flex; flex-direction: column; }
+  .peekl-hide { visibility: hidden; }
+}
