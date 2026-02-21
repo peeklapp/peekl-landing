@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=ubuntu:500);
+@import url(https://fonts.bunny.net/css?family=poppins:500,800);
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 .main {
-  background-color: #bed936;
+  background-color: #731db5;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,9 +15,10 @@
 }
 
 .peekl-title {
-  font-family: 'Ubuntu', sans-serif;
-  color: #731db5;
-  font-size: 10vh;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 8vh;
   padding: 20px;
 }
 
@@ -30,19 +31,16 @@
   margin: 10px;
   border: 1px solid;
   border-radius: 5px;
-  font-size: 2vh;
-  font-family: 'Ubuntu', sans-serif;
+  font-size: 1vh;
+  font-family: 'Poppins', sans-serif;
+  font-weight: '500';
   color: #731db5;
   text-decoration: none;
-}
-
-.filled {
-  border: 1px solid #731db5;
-  background-color: #731db5;
-  color: #ffffff;
+  background-color: #ffffff;
 }
 
 @media (max-width: 600px) {
-  .peekl-button { display: flex; flex-direction: column; }
-  .peekl-hide { visibility: hidden; }
+  .peekl-title { font-size: 10vh; }
+  .peekl-buttons { display: flex; flex-direction: column; }
+  .peekl-button { font-size: 2vh; }
 }
