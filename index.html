@@ -1,22 +1,139 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Peekl</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Peekl - Modern configuration management solution</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/97d801ba4c.js" crossorigin="anonymous"></script>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
   </head>
   <body>
-    <div class="main">
-      <div class="peekl-title">peekl</div>
-      <div class="peekl-buttons">
-        <a class="peekl-button filled" href="https://docs.peekl.dev">
-          <i class="fa-solid fa-book"></i> Documentation
-        </a>
-        <a class="peekl-button" href="https://github.com/peeklapp/peekl">
-          <i class="fa-brands fa-github peekl-hide"></i> See on Github
-        </a>
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="navbar-logo">peekl</div>
+        <div class="navbar-actions">
+          <div class="navbar-links">
+            <a href="https://docs.peekl.dev">Documentation</a>
+          </div>
+          <button class="navbar-theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="navbar-burger" id="navbar-burger" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div class="navbar-mobile-menu" id="navbar-mobile-menu">
+        <a href="https://docs.peekl.dev">Documentation</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-title">Open source configuration management solution for your infrastructure</div>
+        <div class="hero-buttons">
+          <a href="https://docs.peekl.dev" class="hero-buttons-full"><i class="fa-solid fa-book"></i> Getting started</a>
+          <a href="https://github.com/peeklapp/peekl" class="hero-buttons-outlined"><i class="fa-brands fa-github"></i> See on Github</a>
+        </div>
       </div>
     </div>
+    <div class="cards">
+      <div class="cards-row">
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-regular fa-file"></i></div>
+          <div class="cards-card-title">Declarative configuration</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">Describe your infrastructure state into plain files, and deploy automatically.</div>
+        </div>
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="cards-card-title">Multi-environment</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">Either it's your production, your staging or your testing environment, Peekl comes with built-in environments support.</div>
+        </div>
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-solid fa-lock-open"></i></div>
+          <div class="cards-card-title">Open-source</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">MIT licence, forever open-source, no rug pulling under your feet.</div>
+        </div>
+      </div>
+      <div class="cards-row">
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <div class="cards-card-title">Wide compatibility</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">Debian based or Redhat based, Peekl runs everywhere.</div>
+        </div>
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div class="cards-card-title">Built for speed</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">Written with performance in mind, Peekl applies your configs in seconds, not minutes.</div>
+        </div>
+        <div class="cards-card">
+          <div class="cards-card-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <div class="cards-card-title">Version-controlled</div>
+          <div class="cards-card-dash"></div>
+          <div class="cards-card-description">Your infrastructure state lives in git, right alongside the code it supports.</div>
+        </div>
+      </div>
+    </div>
+    <div class="goal">
+      <div class="goal-title">Configuration management, built in the modern time</div>
+      <div class="goal-description">Peekl is built as a modern alternative to existing legacy configuration management solutions. With Peekl, you'll never see your configuration management solution as a bottleneck anymore.</div>
+    </div>
+    <div class="open-source">
+      <div class="open-source-title">Open source, forever</div>
+      <div class="open-source-description">Peekl is a fully open-source project, and will forever be. No one else than the community will ever own the project. You're free to do anything that the <a href="https://opensource.org/license/mit">MIT License</a> allows you to. No strings attached.</div>
+      <div class="open-source-button">
+        <a href="https://github.com/peeklapp/peekl" class="open-source-inner-button"><i class="fa-brands fa-github"></i> Star us on Github</a>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-text">
+        © Peekl Authors
+      </div>
+    </div>
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      const icon = toggle.querySelector('i');
+
+      if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        icon.className = 'fa-solid fa-sun';
+      }
+
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          icon.className = 'fa-solid fa-moon';
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          icon.className = 'fa-solid fa-sun';
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+
+      const burger = document.getElementById('navbar-burger');
+      const mobileMenu = document.getElementById('navbar-mobile-menu');
+      const burgerIcon = burger.querySelector('i');
+
+      burger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('is-open');
+        burgerIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('is-open');
+          burgerIcon.className = 'fa-solid fa-bars';
+        });
+      });
+    </script>
   </body>
-  <script src="https://kit.fontawesome.com/97d801ba4c.js" crossorigin="anonymous"></script>
 </html>
